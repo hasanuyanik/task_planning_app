@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Console\Contracts\ITaskService;
+use App\Http\Services\TaskService;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        App::bind(ITaskService::class, TaskService::class);
     }
 
     /**
