@@ -33,8 +33,6 @@ Database migration...
 sail artisan migrate
 ```
 
-[For Heroku actions](https://devcenter.heroku.com/articles/git)
-
 ## ENV EndPoint Vars Examples
 
 ```
