@@ -41,4 +41,11 @@ interface ITaskService
      */
     public function list(): Collection;
 
+    /**
+     * @param int $value
+     * 
+     * @return Collection
+     */
+    public function listByValue(int $value): Collection;
+
 }

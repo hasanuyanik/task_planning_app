@@ -72,6 +72,15 @@ class TaskService implements ITaskService
     }
 
     /**
+     * 
+     * @return Collection
+     */
+    public function listByValue(int $value): Collection
+    {
+            return $this->repository->listByValue($value);        
+    }
+
+    /**
      * @param array $datas
      * 
      * @return array

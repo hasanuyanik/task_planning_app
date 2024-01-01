@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Repositories;
 
+use App\Console\Constants\SqlOrderConstants;
 use App\Models\Task;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -54,5 +55,14 @@ class TaskRepository
     public function list(): Collection
     {
             return Task::get();        
+    }
+
+    /**
+     * 
+     * @return Collection
+     */
+    public function listByValue(int $value): Collection
+    {
+            return Task::where(['value' => $value])->get();        
     }
 }
