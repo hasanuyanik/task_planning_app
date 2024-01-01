@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "3f510638-415b-42e6-a7e3-5c4fa54194d3",
+		"name": "TaskPlanningEndpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16964067"
+	},
+	"item": [
+		{
+			"name": "Mock",
+			"item": [
+				{
+					"name": "Mock-TR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://run.mocky.io/v3/27b47d79-f382-4dee-b4fe-a0976ceda9cd",
+							"protocol": "https",
+							"host": [
+								"run",
+								"mocky",
+								"io"
+							],
+							"path": [
+								"v3",
+								"27b47d79-f382-4dee-b4fe-a0976ceda9cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mock-EN",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"Task Create\",\r\n    \"estimated_duration\" : 5,\r\n    \"value\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/task/create",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"Task Update\",\r\n    \"estimated_duration\" : 7,\r\n    \"value\" : 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/task/update/2",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/task/delete/2",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/task/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/task/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"task",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
