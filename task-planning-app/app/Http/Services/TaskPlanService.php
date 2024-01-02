@@ -174,14 +174,23 @@ class TaskPlanService
                                         $this->addTaskAtDailyPlanChangeHandleItemBySortNumber($sortNumber);
                                     }
                                 } else if ($this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])['estimated_duration'] <= $this->devsPointers['DEV'.$sortNumber]['dailyHour']) {
+                                    $estimatedDuration = $this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])['estimated_duration'];
+                                    if ($optionalNumber < $sortNumber) {
+                                        $estimatedDuration = ($estimatedDuration * $optionalNumber) / $sortNumber;
+                                    }
+                                    
                                     $this->setDailyPlanForDev(
-                                        $this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])['estimated_duration'],
+                                        $estimatedDuration,
                                         $this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])
                                     );
-                                    $this->devsPointers['DEV'.$sortNumber]['dailyHour'] = $dailyHourBySortNumber - $this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])['estimated_duration'];
+                                    $this->devsPointers['DEV'.$sortNumber]['dailyHour'] = $dailyHourBySortNumber - $estimatedDuration;
                                     $this->devsPointers['DEV'.$optionalNumber]['pointer'] = $this->devsPointers['DEV'.$optionalNumber]['pointer'] + 1;
                                 } else {
-                                    $remainingValue = $this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])['estimated_duration'] - $dailyHourBySortNumber;
+                                    $estimatedDuration = $this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])['estimated_duration'];
+                                    if ($optionalNumber < $sortNumber) {
+                                        $estimatedDuration = ($estimatedDuration * $optionalNumber) / $sortNumber;
+                                    }
+                                    $remainingValue = $estimatedDuration - $dailyHourBySortNumber;
                                     $this->setDailyPlanForDev(
                                         $dailyHourBySortNumber,
                                         $this->taskListByValue[$optionalNumber]->get($this->devsPointers['DEV'.$optionalNumber]['pointer'])
